@@ -3,11 +3,10 @@ import React, { useEffect, useState } from 'react'
 import { MovieData } from '@/app/interfaces'
 import Link from 'next/link'
 import ReactLoading from 'react-loading'
-import type { Metadata } from "next";
 
 
 
-const movie = ({ params }: { params: { imdbid: string } }) => {
+const Movie = ({ params }: { params: { imdbid: string } }) => {
 
   const baseURL = 'https://www.omdbapi.com/'
   const apiKey = '3dc42e95';
@@ -23,9 +22,9 @@ const movie = ({ params }: { params: { imdbid: string } }) => {
 
   useEffect(() => {
     fetchMovies();
+    document.title = `${data?.Title}`
   }, [])
 
-  document.title = `${data?.Title}`
 
   return (
     <>
@@ -56,4 +55,4 @@ const movie = ({ params }: { params: { imdbid: string } }) => {
   )
 }
 
-export default movie
+export default Movie
