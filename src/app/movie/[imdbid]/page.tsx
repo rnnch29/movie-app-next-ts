@@ -22,7 +22,9 @@ const Movie = ({ params }: { params: { imdbid: string } }) => {
 
   useEffect(() => {
     fetchMovies();
-    document.title = `${data?.Title}`
+    if (data?.Title) {
+      document.title = data.Title;
+    }
   }, [])
 
 
